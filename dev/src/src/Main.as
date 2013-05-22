@@ -67,8 +67,8 @@ package
 			/*
 			 * Aca se debe captar el idioma con Capabilities, este es de prueba
 			 */
-			//Idiomas.setIdioma("es_ES");
-			Idiomas.setIdioma(Capabilities.language);
+			Idiomas.setIdioma("en");
+			//Idiomas.setIdioma(Capabilities.language);
 		}
 		
 		private function deactivate(e:Event):void 

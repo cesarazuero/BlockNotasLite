@@ -94,9 +94,11 @@ package tools
 			mc = null;
 		}
 		
-		public function setTexto(cadena:String):void
+		public function setTexto(cadena:String, si:String, no:String):void
 		{
 			mc.txtTexto.text = cadena;
+			mc.btnSi.txtLabel.text = si;
+			mc.btnNo.txtLabel.text = no;
 		}
 	}
 }

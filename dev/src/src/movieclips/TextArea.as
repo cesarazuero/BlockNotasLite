@@ -1,10 +1,12 @@
 package movieclips 
 {
 	import eventos.TextAreaEvent;
+	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import idiomas.Idiomas;
 	
 	/**
 	 * ...
@@ -12,12 +14,14 @@ package movieclips
 	 */
 	public class TextArea extends Sprite 
 	{
-		public var btnAceptar:SimpleButton;
-		public var btnCancelar:SimpleButton;
+		public var btnAceptar:MovieClip;
+		public var btnCancelar:MovieClip;
 		
 		public function TextArea() 
 		{
+			btnAceptar.txtLabel.text = Idiomas.ACEPTAR;
 			btnAceptar.addEventListener(MouseEvent.CLICK, crearTexto);
+			btnCancelar.txtLabel.text = Idiomas.CANCELAR;
 			btnCancelar.addEventListener(MouseEvent.CLICK, cerrarTextArea);
 			
 			addEventListener(Event.ADDED_TO_STAGE, ini);

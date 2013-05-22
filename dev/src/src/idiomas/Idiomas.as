@@ -23,6 +23,7 @@ package idiomas
 		private var _CANCELAR:String = "";
 		private var _ERROR_SENDING:String = "";
 		private var _SUCCESS_SENDING:String = "";
+		private var _ACEPTAR:String = "";
 		
 		private static var _instance:Idiomas;
 		
@@ -54,10 +55,11 @@ package idiomas
 					getInstance()._ADDRESSEE_NAME_EMPTY = "Addressee name missing";
 					getInstance()._SENDER_NAME_EMPTY = "Sender name missing";
 					getInstance()._SENDING = "Sending... wait a moment please.";
-					getInstance()._ENVIAR = "SEND";
-					getInstance()._CANCELAR = "CANCEL";
+					getInstance()._ENVIAR = "Send";
+					getInstance()._CANCELAR = "Cancel";
 					getInstance()._ERROR_SENDING = "Server no reponse, try again please!";
 					getInstance()._SUCCESS_SENDING = "Image sent successfully.";
+					getInstance()._ACEPTAR = "Accept";
 					break;
 				default:
 					getInstance()._DIGITA_TEXTO = "Digita el texto";
@@ -73,10 +75,11 @@ package idiomas
 					getInstance()._ADDRESSEE_NAME_EMPTY = "Te falta colocar el nombre del destinatario";
 					getInstance()._SENDER_NAME_EMPTY = "Te falta colocar el nombre del remitente";
 					getInstance()._SENDING = "Enviando... un momento por favor.";
-					getInstance()._ENVIAR = "ENVIAR";
-					getInstance()._CANCELAR = "CANCELAR";
+					getInstance()._ENVIAR = "Enviar";
+					getInstance()._CANCELAR = "Cancelar";
 					getInstance()._ERROR_SENDING = "El servidor no responde, intente de nuevo por favor.";
 					getInstance()._SUCCESS_SENDING = "Tu imagen se ha enviado exitosamente.";
+					getInstance()._ACEPTAR = "Aceptar";
 					break;
 			}
 		}
@@ -249,6 +252,16 @@ package idiomas
 		public static function set SUCCESS_SENDING(value:String):void 
 		{
 			getInstance()._SUCCESS_SENDING = value;
+		}
+		
+		public static function get ACEPTAR():String 
+		{
+			return getInstance()._ACEPTAR;
+		}
+		
+		public static function set ACEPTAR(value:String):void 
+		{
+			getInstance()._ACEPTAR = value;
 		}
 		
 	}

@@ -235,13 +235,13 @@ package movieclips
 			switch (e.currentTarget.name)
 			{
 				case "modificacion":
-					menu.setTexto(Idiomas.DELETE_TEXT);
+					menu.setTexto(Idiomas.DELETE_TEXT, Idiomas.ACEPTAR, Idiomas.CANCELAR);
 					break;
 				case "modificacionDibujo":
-					menu.setTexto(Idiomas.DELETE_DRAWING);
+					menu.setTexto(Idiomas.DELETE_DRAWING, Idiomas.ACEPTAR, Idiomas.CANCELAR);
 					break;
 				case "eliminarFoto":
-					menu.setTexto(Idiomas.DELETE_PHOTO);
+					menu.setTexto(Idiomas.DELETE_PHOTO, Idiomas.ACEPTAR, Idiomas.CANCELAR);
 					break;
 			}
 				
@@ -281,7 +281,7 @@ package movieclips
 				mc.y = stage.stageHeight * 0.5;
 				mc.scaleX = mc.scaleY = 0;
 				mc.scaleX = mc.scaleY = 1;
-				mc.name = "textArea";
+				mc.name = "textArea";				
 				mc.addEventListener(TextAreaEvent.TEXTO_INGRESADO, textoIngresado);
 				mc.addEventListener(TextAreaEvent.TEXTO_CANCELADO, textoCancelado);
 				mc.addEventListener(Event.REMOVED_FROM_STAGE, destroy);
