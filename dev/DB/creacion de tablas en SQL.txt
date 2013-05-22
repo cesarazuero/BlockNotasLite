@@ -1,0 +1,85 @@
+
+
+
+
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'ARCHIVOS'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `ARCHIVOS`;
+		
+CREATE TABLE `ARCHIVOS` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `Nombre` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+KEY (`Nombre`)
+);
+
+-- ---
+-- Table 'HOJAS'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `HOJAS`;
+		
+CREATE TABLE `HOJAS` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id ARCHIVO` INTEGER NULL DEFAULT NULL,
+  `Nombre` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'TEXTOS'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `TEXTOS`;
+		
+CREATE TABLE `TEXTOS` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `texto` VARCHAR(200) NULL DEFAULT NULL,
+  `posX` DOUBLE NULL DEFAULT NULL,
+  `posY` DOUBLE NULL DEFAULT NULL,
+  `ancho` FLOAT NULL DEFAULT NULL,
+  `alto` FLOAT NULL DEFAULT NULL,
+  `escalaX` FLOAT NULL DEFAULT NULL,
+  `escalaY` INTEGER NULL DEFAULT NULL,
+  `rotacion` FLOAT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+ALTER TABLE `HOJAS` ADD FOREIGN KEY (id) REFERENCES `TEXTOS` (`id`);
+ALTER TABLE `HOJAS` ADD FOREIGN KEY (id ARCHIVO) REFERENCES `ARCHIVOS` (`id`);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `ARCHIVOS` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `HOJAS` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `TEXTOS` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `ARCHIVOS` (`id`,`Nombre`) VALUES
+-- ('','');
+-- INSERT INTO `HOJAS` (`id`,`id ARCHIVO`,`Nombre`) VALUES
+-- ('','','');
+-- INSERT INTO `TEXTOS` (`id`,`texto`,`posX`,`posY`,`ancho`,`alto`,`escalaX`,`escalaY`,`rotacion`) VALUES
+-- ('','','','','','','','','');
+
