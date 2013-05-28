@@ -70,6 +70,8 @@ package movieclips
 		public var mcTarget:Sprite;		
 		public var btnSend:MovieClip;
 		public var mcEnvio:MovieClip;
+		public var mcBloque:MovieClip;
+		public var mcMenuDibujo:MovieClip;
 		
 		private var menuActivo:Sprite = null;
 		private var loader:Loader;
@@ -95,6 +97,9 @@ package movieclips
 			btnSend.addEventListener(MouseEvent.CLICK, enviar);
 			
 			btnSend.txtLabel.text = Idiomas.ENVIAR;
+			
+			mcBloque.visible = false;
+			mcMenuDibujo.visible = false;
 		}
 		
 		public function activarHoja():void
@@ -156,6 +161,7 @@ package movieclips
 						mcTarget = e.parent;
 					break;
 				case "mcDibujo":
+					/*
 					var menu3:MenuContextualEditarDibujo = new MenuContextualEditarDibujo();
 						menu3.name = "modificacionDibujo";
 						menu3.construirMenu(mouseX, mouseY, stage.stageWidth);
@@ -165,6 +171,7 @@ package movieclips
 						menuActivo = menu3;
 						addChild(menu3);
 						mcTarget = e;
+					*/
 					break;
 				case "mcFoto":
 					var menu4:MenuContextualEliminarFoto = new MenuContextualEliminarFoto();
@@ -436,7 +443,7 @@ package movieclips
 		{			
 			desactivarHoja();
 			timerMenu.stop();
-			
+			/*
 			var mc:Sprite = new mcDibujo();
 			
 			if (e.currentTarget.name != "inicio")
@@ -451,6 +458,14 @@ package movieclips
 			mc.addEventListener(DibujoEvent.DIBUJO_CANCELADO, dibujoCancelado);
 				
 			addChild(mc);
+			*/
+			//************   APARECEN LAS OPCIONES DE DIBUJO  *********************
+			mcBloque.visible = true;
+			mcMenuDibujo.visible = true;
+			addChild(mcMenuDibujo);
+			
+			
+			
 			menuActivo = null;
 		}
 		

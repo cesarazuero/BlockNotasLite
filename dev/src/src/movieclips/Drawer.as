@@ -25,7 +25,7 @@ package movieclips
 	 * ...
 	 * @author Cesar Azuero
 	 */
-	public class DibujoArea extends Sprite
+	public class Drawer extends Sprite
 	{
 		public var btnOk:SimpleButton;
 		public var btnCancelar:SimpleButton;
@@ -50,7 +50,7 @@ package movieclips
 		private var currentIndex: int = 0;		
 		
 		
-		public function DibujoArea():void 
+		public function Drawer():void 
 		{
 			addEventListener(Event.ADDED_TO_STAGE, ini);			
 		}
@@ -59,7 +59,6 @@ package movieclips
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, ini);
 			
-			open();
 			agregarListeners();
 			pincelActivo = mcIndicadorPincel1;
 			pincelActivo.nextFrame();
@@ -99,21 +98,6 @@ package movieclips
 			btnPincel3.removeEventListener(MouseEvent.CLICK, clickHandler);
 			
 			mcFondoDibujo.removeEventListener(MouseEvent.MOUSE_DOWN, startDraw);
-		}
-		
-		private function open():void
-		{
-			this.scaleX = 0;
-			this.scaleY = 0;
-			TweenMax.to(this, 0.5, { scaleX:1, scaleY:1, ease:Back.easeOut, onComplete:function() 
-				{
-					if (vectorObj.length > 1)
-					{
-						//Si este vector no está vacío es porque se va a modificar un dibujo
-						dibujar(vectorObj);
-					}
-				}
-			});
 		}
 		
 		private function startDraw(e:MouseEvent):void 

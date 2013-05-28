@@ -69,6 +69,8 @@ package
 			 */
 			Idiomas.setIdioma("en");
 			//Idiomas.setIdioma(Capabilities.language);
+			var hoja:MovieClip = new mcHojaBase();
+				addChild(hoja);
 		}
 		
 		private function deactivate(e:Event):void 
@@ -80,31 +82,6 @@ package
 		private function ini(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, ini);
-			//Creo la primera hoja
-			crearHoja(true);
-		}
-		
-		private function crearHoja(addList:Boolean, indice:int = -1):void		
-		{
-			if (indice == -1)
-			{
-				mcHoja = new mcHojaBase();
-				mcHoja.name = "mcHoja";
-					
-				if (addList)
-				{
-					addChild(mcHoja);
-				}
-					
-				vectorHojas.push(mcHoja);
-				cantHojas++;
-			}
-			else
-			{
-				mcHoja = vectorHojas[indice];
-				mcHoja.name = "mcHoja";
-			}			
-			
 		}
 		
 		public function crearNativeText(cantLineas:uint, cadena:String = null, ancho:Number = 0, posX:Number = 0, posY:Number = 0, maxChars:uint = 5, cambiar:Boolean = false, nombre:String = ""):void
@@ -197,16 +174,6 @@ package
 			{
 				e.currentTarget.text = Idiomas.NOMBRE_DESTINATARIO;
 			}	
-		}
-		
-		private function eliminarTodo():void
-		{
-			removeChild(mcHoja);			
-			vectorHojas = null;
-			mcHoja = null;
-			cantHojas = 0;
-			hojaActual = 1;
-			cantHojas = 0;
 		}
 	}	
 }
